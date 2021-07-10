@@ -1,0 +1,230 @@
+{% load static %}
+{% load bootstrap %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Book Shelf</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
+	<link href="{% static 'css/templatemo-style.css' %}" rel="stylesheet" />
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body> 
+
+	<div class="container">
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/simple-house-01.jpg' %}">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<img src="{% static 'img/simple-house-logo.png' %}" alt="Logo" class="tm-site-logo" /> 
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">Book Shelf</h1>
+								<h6 class="tm-site-description">Add or Explore New Books</h6>	
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="{% url 'create-book' %}" class="tm-nav-link">Add New Book</a></li>
+							</ul>
+						</nav>	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">Explore New Books</h2>
+			</header>
+			<!-- <div class="list-filter">
+				<form method="GET">
+					<div class="filter-group">
+						{{ filter.form|bootstrap }}
+						<input type="submit" class="update-submit-item" value="Filter">
+					</div>
+				</form>
+			</div> -->
+			<div class="list-filter">
+				<form method="GET">
+					<div class="filter-group">
+						<label style="color: grey; margin-left: 20px; margin-right : 20px; font-size : 25px">Filters</label>
+						<br>
+						<label style="color: grey; margin-left: 20px; margin-right : 20px">Genre</label>
+						<br>
+						<article for="id_genre_0" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="genre" value="1" id="id_genre_0"/>
+							<div>
+							<span>
+								Thriller
+							</span>
+							</div>
+						</article>
+						<article for="id_genre_1" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="genre" value="2" id="id_genre_1"/>
+							<div>
+							<span>
+								Mystery
+							</span>
+							</div>
+						</article>
+						<article for="id_genre_2" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="genre" value="3" id="id_genre_2"/>
+							<div>
+							<span>
+								Fantasy
+							</span>
+							</div>
+						</article>
+						<article for="id_genre_3" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="genre" value="4" id="id_genre_3"/>
+							<div>
+							<span>
+								Narrative
+							</span>
+							</div>
+						</article>
+
+						<article for="id_genre_4" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="genre" value="5" id="id_genre_4"/>
+							<div>
+							<span>
+								Fiction
+							</span>
+							</div>
+						</article>
+						<article for="id_genre_5" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="genre" value="6" id="id_genre_5"/>
+							<div>
+							<span>
+								Non-Fiction
+							</span>
+							</div>
+						</article>
+						<article for="id_genre_6" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="genre" value="7" id="id_genre_6"/>
+							<div>
+							<span>
+								Science-Fiction
+							</span>
+							</div>
+						</article>
+						<article for="id_genre_7" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="genre" value="8" id="id_genre_7"/>
+							<div>
+							<span>
+								Historical-Fiction
+							</span>
+							</div>
+						</article>
+						<article for="id_genre_8" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="genre" value="9" id="id_genre_8"/>
+							<div>
+							<span>
+								Romance
+							</span>
+							</div>
+						</article>
+						<article for="id_genre_9" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="genre" value="10" id="id_genre_9"/>
+							<div>
+							<span>
+								Horror
+							</span>
+							</div>
+						</article>
+						<br><br>
+
+
+						<label style="color: grey; margin-left: 20px; margin-right : 20px">Language</label>
+						<br>
+						<article for="id_language_0" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="language" value="English" id="id_language_0"/>
+							<div>
+							<span>
+								English
+							</span>
+							</div>
+						</article>
+
+						<article for="id_language_1" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="language" value="Hindi" id="id_language_1"/>
+							<div>
+							<span>
+								Hindi
+							</span>
+							</div>
+						</article>
+						<article for="id_language_2" class="article-checkbox" style="margin-left: 20px; margin-right : 20px">
+							<input type="checkbox" name="language" value="Marathi" id="id_language_2"/>
+							<div>
+							<span>
+								Marathi
+							</span>
+							</div>
+						</article>
+						<br>
+						<input type="submit" class="tm-btn tm-btn-success" style="margin: auto; border-radius: 20px;" value="Filter">
+						<br><br>
+					</div>
+				</form>
+
+				<!-- Gallery -->
+				<div class="row tm-gallery">
+					<!-- gallery page 1 -->
+					<div id="tm-gallery-page-pizza" class="tm-gallery-page">
+						{% for book in filter.qs %}
+							{% if book in filter.qs %}
+							<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+								<a href="{% url 'detail-book' book.id %}" class="tm-btn tm-btn-default">
+									<figure>
+										<img src="{% static 'img/book.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+										<figcaption>
+											<h4 class="tm-gallery-title">{{book.name}}</h4>
+											<p class="tm-gallery-description">{{book.genre.all|join:", "}}</p>
+											<!-- View  -->
+										</figcaption>
+									</figure>
+								</a>
+							</article>
+							{% endif %}
+							{% empty %}
+								<header class="row tm-welcome-section">
+									<h2 class="col-12 text-center tm-section-title" style="color: grey; margin-left : 13vw">No Books are currently available for applied filter. <br> Try Again!</h2>
+								</header>
+						{% endfor %}
+					</div> 
+				</div>
+			</div>
+		</main>
+	</div>
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/parallax.min.js' %}"></script>
+	<script>
+		$(document).ready(function(){
+			// Handle click on paging links
+			$('.tm-paging-link').click(function(e){
+				e.preventDefault();
+				
+				var page = $(this).text().toLowerCase();
+				$('.tm-gallery-page').addClass('hidden');
+				$('#tm-gallery-page-' + page).removeClass('hidden');
+				$('.tm-paging-link').removeClass('active');
+				$(this).addClass("active");
+			});
+		});
+	</script>
+</body>
+</html>
