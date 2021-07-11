@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_filters',
     'bootstrapform',
+    'import_export'
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'website.urls'
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 TEMPLATES = [
     {
